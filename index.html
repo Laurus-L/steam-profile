@@ -3,185 +3,185 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>勇猛狮子斩！ — Gaming Profile</title>
+<title>勇猛狮子斩！ — 褪色者编年史</title>
 <style>
-/* ===== RESET & TOKENS ===== */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+/* ===== TOKENS: 黄金树 × 暗月 ===== */
 :root{
-  --void:#07060a;--surface:#100f15;--card:#181720;--card-hover:#1e1c28;
-  --border:rgba(255,255,255,0.05);--border-strong:rgba(255,255,255,0.1);
-  --plasma:#00e5c0;--plasma-dim:rgba(0,229,192,0.15);
-  --coral:#ff5e7e;--coral-dim:rgba(255,94,126,0.12);
-  --gold:#ffb800;--gold-dim:rgba(255,184,0,0.12);
-  --ember:#ff6a00;--ember-dim:rgba(255,106,0,0.08);
-  --purple:#a78bfa;--purple-dim:rgba(167,139,250,0.1);
-  --text:#e6e8f0;--text-dim:#8b8fa8;--text-muted:#5c5f78;
-  --font-body:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei','Hiragino Sans GB',sans-serif;
-  --font-mono:'Cascadia Code','Fira Code','JetBrains Mono','Consolas',monospace;
-  --radius-sm:6px;--radius:10px;--radius-lg:16px;--radius-xl:24px;
+  --erdtree: #c7a44b;      --erdtree-light: #e8c95d;   --erdtree-dim: rgba(199,164,75,0.12);
+  --ranni: #5b7eb5;        --ranni-light: #8a9cc0;     --ranni-dim: rgba(91,126,181,0.1);
+  --scarlet: #7a2e2e;      --scarlet-dim: rgba(122,46,46,0.12);
+  --stone-bg: #0b0a07;     --stone-card: #141210;      --stone-border: #25211b;
+  --stone-light: #1e1b16;  --parchment: #d5cfc0;       --parchment-dim: #8a8278;
+  --text: #d5cfc0;         --text-dim: #8a8278;        --text-faint: #5c5650;
+  --font-display: Georgia,'Noto Serif SC','SimSun',serif;
+  --font-body: -apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+  --font-mono: 'Cascadia Code','Fira Code','JetBrains Mono','Consolas',monospace;
+  --radius: 4px;--radius-lg: 8px;
 }
-html{scroll-behavior:smooth;background:var(--void);color:var(--text);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--stone-bg);color:var(--text);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased}
 body{overflow-x:hidden}
 
-/* ===== AMBIENT GRADIENT BLOBS ===== */
-.ambient{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.ambient::before,.ambient::after{content:'';position:absolute;border-radius:50%;filter:blur(120px);opacity:.08;will-change:transform}
-.ambient::before{width:500px;height:500px;background:var(--plasma);top:-150px;right:-50px}
-.ambient::after{width:400px;height:400px;background:var(--coral);bottom:-100px;left:-50px}
+/* ===== BACKGROUND: 黄金树辉 + 暗月幽光 ===== */
+.bg-ambient{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.bg-ambient::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse at 50% 0%,rgba(199,164,75,0.12) 0%,transparent 70%);pointer-events:none}
+.bg-ambient::after{content:'';position:absolute;bottom:-10%;right:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(91,126,181,0.08) 0%,transparent 70%);pointer-events:none}
+
+/* ===== GOLDEN GRACE PARTICLES ===== */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0}
 
 /* ===== LAYOUT ===== */
-.container{max-width:1160px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.container{max-width:1100px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
 section{padding:80px 0;position:relative}
-.section-label{font-size:11px;text-transform:uppercase;letter-spacing:4px;color:var(--text-muted);margin-bottom:24px;font-weight:600}
+.section-label{font-family:var(--font-display);font-size:13px;letter-spacing:5px;color:var(--erdtree);margin-bottom:20px;text-transform:uppercase}
 
 /* ===== NAV ===== */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;background:rgba(7,6,10,0.95);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:13px;font-weight:500}
-.nav-links{display:flex;gap:28px}
-.nav a{color:var(--text-dim);text-decoration:none;transition:color .2s}
-.nav a:hover{color:var(--text)}
-.nav-avatar{width:32px;height:32px;border-radius:50%;border:2px solid var(--border-strong)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 24px;background:rgba(11,10,7,0.92);border-bottom:1px solid var(--stone-border);display:flex;align-items:center;justify-content:space-between;font-size:13px}
+.nav-links{display:flex;gap:32px}
+.nav a{color:var(--parchment-dim);text-decoration:none;transition:color .25s;font-size:12px;letter-spacing:1px}
+.nav a:hover{color:var(--erdtree-light)}
 
 /* ===== HERO ===== */
-.hero{padding:160px 0 100px;text-align:center;position:relative}
-.hero-avatar-wrap{position:relative;display:inline-block;margin-bottom:28px}
-.hero-avatar-ring{position:absolute;inset:-8px;border-radius:50%;border:2px solid transparent;background:conic-gradient(var(--plasma),var(--purple),var(--coral),var(--gold),var(--plasma)) border-box;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#fff calc(100% - 2px));mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#fff calc(100% - 2px));animation:spin 8s linear infinite}
+.hero{padding:160px 0 80px;text-align:center;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:120px;background:linear-gradient(to bottom,transparent,var(--erdtree),transparent);opacity:.4}
+.hero-avatar-wrap{position:relative;display:inline-block;margin-bottom:32px}
+.hero-avatar{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--erdtree);box-shadow:0 0 40px rgba(199,164,75,0.2),0 0 80px rgba(199,164,75,0.08);position:relative;z-index:1}
+.hero-avatar-ring{position:absolute;inset:-12px;border-radius:50%;border:1px solid transparent;background:conic-gradient(var(--erdtree),var(--ranni),var(--erdtree-light),var(--ranni-light),var(--erdtree)) border-box;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 1px),#fff calc(100% - 1px));mask:radial-gradient(farthest-side,transparent calc(100% - 1px),#fff calc(100% - 1px));animation:spin 12s linear infinite;opacity:.6}
 @keyframes spin{to{transform:rotate(360deg)}}
-.hero-name{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-0.5px;margin-bottom:6px;background:linear-gradient(135deg,var(--text),var(--plasma));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-location{font-size:15px;color:var(--text-dim);margin-bottom:4px}
-.hero-since{font-size:13px;color:var(--text-muted)}
+.hero-title{font-family:var(--font-display);font-size:clamp(24px,5vw,38px);font-weight:400;letter-spacing:3px;margin-bottom:6px;color:var(--erdtree-light)}
+.hero-sub{font-size:14px;color:var(--parchment-dim);letter-spacing:1px}
+.hero-since{font-size:12px;color:var(--text-faint);margin-top:6px;font-style:italic}
 
-/* ===== STAT CARDS ===== */
-.hero-stats{display:flex;justify-content:center;gap:clamp(16px,4vw,48px);margin-top:40px;flex-wrap:wrap}
-.stat-card{text-align:center;padding:20px 28px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);min-width:140px;transition:transform .3s,border-color .3s}
-.stat-card:hover{transform:translateY(-4px);border-color:var(--border-strong)}
-.stat-number{font-family:var(--font-mono);font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-1px}
-.stat-number.gold{color:var(--gold)}
-.stat-number.plasma{color:var(--plasma)}
-.stat-number.coral{color:var(--coral)}
-.stat-number.purple{color:var(--purple)}
-.stat-label{font-size:12px;color:var(--text-muted);margin-top:4px;text-transform:uppercase;letter-spacing:1.5px}
+/* ===== STAT CARDS (stone tablets) ===== */
+.hero-stats{display:flex;justify-content:center;gap:clamp(12px,3vw,40px);margin-top:44px;flex-wrap:wrap}
+.stat-card{text-align:center;padding:24px 32px;background:var(--stone-card);border:1px solid var(--stone-border);border-radius:var(--radius);min-width:140px;transition:all .3s;position:relative;overflow:hidden}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .3s}
+.stat-card:nth-child(1)::before{background:var(--erdtree)}
+.stat-card:nth-child(2)::before{background:var(--scarlet)}
+.stat-card:nth-child(3)::before{background:var(--erdtree-light)}
+.stat-card:nth-child(4)::before{background:var(--ranni)}
+.stat-card:hover{transform:translateY(-3px);border-color:var(--stone-light)}
+.stat-card:hover::before{opacity:1}
+.stat-number{font-family:var(--font-display);font-size:clamp(26px,4vw,36px);font-weight:400;letter-spacing:1px}
+.stat-number.gold{color:var(--erdtree-light)}
+.stat-number.scarlet{color:#c45454}
+.stat-number.ranni{color:var(--ranni-light)}
+.stat-label{font-size:10px;color:var(--text-faint);margin-top:6px;text-transform:uppercase;letter-spacing:3px;font-family:var(--font-display)}
 
-/* ===== HEAT VANE (year bar) ===== */
-.heatvane{margin-top:48px}
-.heatvane-label{font-size:11px;text-transform:uppercase;letter-spacing:3px;color:var(--text-muted);margin-bottom:12px}
-.heatvane-bar{display:flex;height:48px;border-radius:var(--radius-sm);overflow:hidden;gap:2px;background:var(--surface);padding:2px}
-.heatvane-year{flex:1;border-radius:3px;transition:transform .2s,filter .2s;cursor:pointer;position:relative;min-width:0}
-.heatvane-year:hover{transform:scaleY(1.2);filter:brightness(1.4);z-index:2}
-.heatvane-labels{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:var(--text-muted);letter-spacing:0.5px}
+/* ===== GRACE BAR (year heatmap) ===== */
+.grace-bar{margin-top:48px;max-width:700px;margin-left:auto;margin-right:auto}
+.grace-label{font-size:10px;text-transform:uppercase;letter-spacing:4px;color:var(--text-faint);margin-bottom:12px;font-family:var(--font-display)}
+.grace-track{display:flex;height:40px;gap:3px;padding:3px;background:var(--stone-card);border:1px solid var(--stone-border);border-radius:var(--radius)}
+.grace-year{flex:1;border-radius:2px;transition:transform .2s,filter .2s;cursor:pointer;min-width:0}
+.grace-year:hover{transform:scaleY(1.3);filter:brightness(1.6);z-index:2}
+.grace-labels{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:var(--text-faint);letter-spacing:1px}
 
 /* ===== SECTION HEADERS ===== */
 .section-header{margin-bottom:40px}
-.section-title{font-size:clamp(20px,3vw,26px);font-weight:700;letter-spacing:-0.3px}
-.section-sub{font-size:14px;color:var(--text-dim);margin-top:6px}
+.section-title{font-family:var(--font-display);font-size:clamp(18px,3vw,24px);font-weight:400;letter-spacing:2px;color:var(--parchment)}
+.section-sub{font-size:13px;color:var(--text-dim);margin-top:6px;font-style:italic}
+.section-divider{width:60px;height:1px;background:var(--erdtree);margin:16px 0;opacity:.5}
 
-/* ===== HALL OF FAME GRID ===== */
-.hof-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-.hof-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);transition:transform .25s,border-color .25s;cursor:default;position:relative;overflow:hidden;display:flex;flex-direction:column}
-.hof-card:hover{transform:translateY(-4px);border-color:var(--border-strong)}
-.hof-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;z-index:3;border-radius:3px 3px 0 0}
-.hof-card.rank-1::before{background:var(--gold);box-shadow:0 0 20px var(--gold-dim)}
-.hof-card.rank-2::before{background:var(--plasma);box-shadow:0 0 15px var(--plasma-dim)}
-.hof-card.rank-3::before{background:var(--coral);box-shadow:0 0 15px var(--coral-dim)}
-.hof-card.rank-4::before,.hof-card.rank-5::before{background:var(--purple);box-shadow:0 0 10px var(--purple-dim)}
-.hof-card.rank-6::before,.hof-card.rank-7::before,.hof-card.rank-8::before{background:rgba(255,255,255,0.15)}
-.hof-cover{width:100%;height:140px;object-fit:cover;display:block;background:var(--surface)}
-.hof-cover-placeholder{width:100%;height:140px;display:flex;align-items:center;justify-content:center;font-size:40px;background:linear-gradient(135deg,var(--surface),var(--card))}
-.hof-body{padding:20px 24px 24px;position:relative;z-index:2;flex:1}
-.hof-rank{font-family:var(--font-mono);font-size:11px;color:var(--text-muted);margin-bottom:6px;letter-spacing:2px}
-.hof-name{font-size:16px;font-weight:700;margin-bottom:4px;line-height:1.3}
-.hof-hours{font-family:var(--font-mono);font-size:28px;font-weight:700;letter-spacing:-1px;margin:10px 0}
-.hof-hours.plasma{color:var(--plasma)}
-.hof-hours.coral{color:var(--coral)}
-.hof-hours.gold{color:var(--gold)}
-.hof-bar{height:4px;border-radius:2px;background:var(--surface);margin:8px 0;overflow:hidden}
-.hof-bar-fill{height:100%;border-radius:2px;transition:width 1s ease}
-.hof-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--text-dim);margin-top:8px}
-
-/* ===== LEADERBOARD GAME ICON ===== */
-.lb-icon-cell{width:120px;padding-right:0!important}
-.lb-icon{width:115px;height:43px;border-radius:4px;object-fit:cover;background:var(--surface);display:block}
-.lb-name-cell{display:flex;align-items:center;gap:12px}
-.lb-name-text{font-weight:600;display:block}
-.lb-name-text small{display:block;font-size:11px;color:var(--text-muted);font-weight:400;margin-top:1px}
+/* ===== HALL OF FAME（圣物匣）===== */
+.hof-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:14px}
+.hof-card{background:var(--stone-card);border:1px solid var(--stone-border);border-radius:var(--radius);overflow:hidden;transition:transform .3s,border-color .3s;display:flex;flex-direction:column}
+.hof-card:hover{transform:translateY(-4px);border-color:var(--erdtree)}
+.hof-cover{width:100%;height:130px;object-fit:cover;display:block;background:var(--stone-light)}
+.hof-cover-placeholder{width:100%;height:130px;display:flex;align-items:center;justify-content:center;font-size:44px;background:linear-gradient(135deg,var(--stone-light),var(--stone-card))}
+.hof-body{padding:20px 22px 22px;flex:1}
+.hof-rank{font-family:var(--font-display);font-size:10px;color:var(--erdtree);margin-bottom:6px;letter-spacing:3px;text-transform:uppercase}
+.hof-name{font-family:var(--font-display);font-size:15px;color:var(--parchment);margin-bottom:4px;letter-spacing:0.5px}
+.hof-hours{font-family:var(--font-display);font-size:26px;margin:8px 0;letter-spacing:1px}
+.hof-hours.gold{color:var(--erdtree-light)}
+.hof-hours.ranni{color:var(--ranni-light)}
+.hof-hours.scarlet{color:#c45454}
+.hof-bar{height:3px;background:var(--stone-light);margin:10px 0;overflow:hidden;border-radius:2px}
+.hof-bar-fill{height:100%;border-radius:2px;transition:width 1.2s ease}
+.hof-meta{display:flex;justify-content:space-between;font-size:11px;color:var(--text-dim);margin-top:8px}
 
 /* ===== LEADERBOARD TABLE ===== */
-.lb-controls{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap}
-.lb-search{flex:1;min-width:200px;padding:10px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-size:14px;outline:none;font-family:var(--font-body);transition:border-color .2s}
-.lb-search:focus{border-color:var(--plasma)}
-.lb-search::placeholder{color:var(--text-muted)}
-.lb-sort{padding:10px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);color:var(--text-dim);font-size:13px;cursor:pointer;font-family:var(--font-body);transition:border-color .2s;outline:none}
-.lb-sort:hover{border-color:var(--border-strong)}
-.lb-table{width:100%;border-collapse:collapse;font-size:14px}
-.lb-table th{text-align:left;padding:12px 16px;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);border-bottom:1px solid var(--border);font-weight:600;background:var(--void)}
-.lb-table td{padding:12px 16px;border-bottom:1px solid var(--border)}
-.lb-table tr{transition:background .15s}
-.lb-table tbody tr:hover{background:var(--card)}
-.lb-rank{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);width:40px}
-.lb-name{font-weight:600}
-.lb-hours{font-family:var(--font-mono);font-weight:600;text-align:right}
-.lb-bar-cell{width:180px}
-.lb-bar{height:6px;border-radius:3px;background:var(--surface);overflow:hidden}
+.lb-controls{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.lb-search{flex:1;min-width:200px;padding:10px 16px;background:var(--stone-card);border:1px solid var(--stone-border);border-radius:var(--radius);color:var(--text);font-size:13px;outline:none;font-family:var(--font-body);transition:border-color .2s}
+.lb-search:focus{border-color:var(--erdtree)}
+.lb-search::placeholder{color:var(--text-faint)}
+.lb-sort{padding:10px 16px;background:var(--stone-card);border:1px solid var(--stone-border);border-radius:var(--radius);color:var(--text-dim);font-size:12px;cursor:pointer;font-family:var(--font-body);transition:border-color .2s;outline:none}
+.lb-sort:hover{border-color:var(--stone-light)}
+.lb-table{width:100%;border-collapse:collapse;font-size:13px}
+.lb-table th{text-align:left;padding:12px 14px;font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--erdtree);border-bottom:1px solid var(--stone-border);font-weight:400;background:var(--stone-bg);font-family:var(--font-display)}
+.lb-table td{padding:10px 14px;border-bottom:1px solid rgba(37,33,27,0.5);vertical-align:middle}
+.lb-table tbody tr{transition:background .2s}
+.lb-table tbody tr:hover{background:var(--stone-card)}
+.lb-rank{font-family:var(--font-display);font-size:12px;color:var(--text-faint);width:32px}
+.lb-icon-cell{width:115px;padding-right:0!important}
+.lb-icon{width:110px;height:41px;border-radius:3px;object-fit:cover;background:var(--stone-light);display:block}
+.lb-name-text{font-weight:600;display:block;color:var(--parchment)}
+.lb-name-text small{display:block;font-size:10px;color:var(--text-faint);font-weight:400;margin-top:1px}
+.lb-hours{font-family:var(--font-display);font-weight:400;text-align:right;letter-spacing:1px}
+.lb-bar-cell{width:160px}
+.lb-bar{height:5px;border-radius:3px;background:var(--stone-light);overflow:hidden}
 .lb-bar-fill{height:100%;border-radius:3px;transition:width 1s ease}
-.lb-ach{font-size:12px;color:var(--text-dim);text-align:right}
-.lb-ach.green{color:var(--plasma)}
-.lb-date{font-size:12px;color:var(--text-muted);text-align:right;white-space:nowrap}
+.lb-ach{font-size:11px;color:var(--text-dim);text-align:right}
+.lb-ach.green{color:var(--erdtree-light)}
+.lb-date{font-size:11px;color:var(--text-faint);text-align:right;white-space:nowrap;font-style:italic}
+#lbPagination{margin-top:24px!important}
 
-/* ===== PERFECT GAMES ===== */
-.perfect-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
-.perfect-card{background:var(--card);border:1px solid var(--gold-dim);border-radius:var(--radius-lg);padding:24px;text-align:center;transition:transform .25s,box-shadow .25s;position:relative}
-.perfect-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px var(--gold-dim)}
-.perfect-badge{display:inline-block;font-size:32px;margin-bottom:8px}
-.perfect-name{font-size:15px;font-weight:700;margin-bottom:8px}
-.perfect-ach{font-family:var(--font-mono);font-size:13px;color:var(--gold)}
-.perfect-hours{font-family:var(--font-mono);font-size:20px;font-weight:700;color:var(--text);margin-top:8px}
+/* ===== PERFECT GAMES（暗月祭坛）===== */
+.perfect-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.perfect-card{background:var(--stone-card);border:1px solid var(--ranni-dim);border-radius:var(--radius);padding:24px;text-align:center;transition:transform .3s,box-shadow .3s}
+.perfect-card:hover{transform:translateY(-4px);box-shadow:0 8px 40px rgba(91,126,181,0.15);border-color:var(--ranni)}
+.perfect-badge{font-size:28px;margin-bottom:6px}
+.perfect-name{font-family:var(--font-display);font-size:14px;color:var(--parchment);margin-bottom:6px;letter-spacing:0.5px}
+.perfect-ach{font-size:11px;color:var(--ranni-light)}
+.perfect-hours{font-family:var(--font-display);font-size:20px;color:var(--text);margin-top:8px;letter-spacing:1px}
+.perfect-cover{width:100%;height:90px;object-fit:cover;border-radius:3px;margin-bottom:12px;background:var(--stone-light)}
 
-/* ===== NAME HISTORY TIMELINE ===== */
-.timeline{position:relative;padding-left:32px}
-.timeline::before{content:'';position:absolute;left:7px;top:4px;bottom:4px;width:1px;background:var(--border-strong)}
-.timeline-item{position:relative;padding-bottom:28px}
+/* ===== NAME HISTORY（褪色者之名）===== */
+.timeline{position:relative;padding-left:32px;max-width:600px}
+.timeline::before{content:'';position:absolute;left:6px;top:4px;bottom:4px;width:1px;background:linear-gradient(to bottom,var(--erdtree),var(--ranni),var(--stone-border))}
+.timeline-item{position:relative;padding-bottom:26px}
 .timeline-item:last-child{padding-bottom:0}
-.timeline-dot{position:absolute;left:-29px;top:6px;width:13px;height:13px;border-radius:50%;border:2px solid var(--plasma);background:var(--void);z-index:1;transition:background .3s}
-.timeline-item:hover .timeline-dot{background:var(--plasma);box-shadow:0 0 12px var(--plasma-dim)}
-.timeline-name{font-size:16px;font-weight:700;margin-bottom:2px}
-.timeline-date{font-size:12px;color:var(--text-muted)}
+.timeline-dot{position:absolute;left:-30px;top:7px;width:11px;height:11px;border-radius:50%;border:1px solid var(--erdtree);background:var(--stone-bg);z-index:1;transition:all .3s}
+.timeline-item:hover .timeline-dot{background:var(--erdtree);box-shadow:0 0 12px rgba(199,164,75,0.4)}
+.timeline-name{font-family:var(--font-display);font-size:15px;color:var(--parchment);margin-bottom:2px;letter-spacing:0.5px}
+.timeline-date{font-size:11px;color:var(--text-faint);font-style:italic}
 
-/* ===== GENRE TAGS ===== */
+/* ===== TAGS（赐福印记）===== */
 .tag-cloud{display:flex;flex-wrap:wrap;gap:10px}
-.tag{display:inline-block;padding:8px 18px;border-radius:100px;font-size:13px;font-weight:600;letter-spacing:0.3px;border:1px solid var(--border);background:var(--surface);color:var(--text-dim);transition:all .2s;cursor:default}
-.tag:hover{color:var(--text);border-color:var(--border-strong);transform:translateY(-2px)}
-.tag.giant{font-size:18px;padding:12px 24px;background:var(--card);border-color:var(--plasma-dim);color:var(--plasma)}
-.tag.large{font-size:15px;padding:10px 20px;background:var(--card);border-color:var(--coral-dim);color:var(--coral)}
+.tag{display:inline-block;padding:7px 16px;border-radius:2px;font-size:12px;letter-spacing:1px;border:1px solid var(--stone-border);background:var(--stone-card);color:var(--text-dim);transition:all .25s;cursor:default;font-family:var(--font-display)}
+.tag:hover{color:var(--erdtree-light);border-color:var(--erdtree);transform:translateY(-2px)}
+.tag.giant{font-size:16px;padding:10px 20px;border-color:var(--erdtree);color:var(--erdtree-light)}
+.tag.large{font-size:14px;padding:9px 18px;border-color:var(--ranni);color:var(--ranni-light)}
 
-/* ===== GAMING JOURNEY GRID ===== */
-.journey-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.journey-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;transition:transform .2s}
-.journey-card:hover{transform:translateY(-3px)}
-.journey-year{font-family:var(--font-mono);font-size:28px;font-weight:700;letter-spacing:-1px;margin-bottom:4px}
-.journey-phase{font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
-.journey-games{font-size:13px;color:var(--text-dim);line-height:1.8}
+/* ===== JOURNEY（交界地之旅）===== */
+.journey-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.journey-card{background:var(--stone-card);border:1px solid var(--stone-border);border-radius:var(--radius);padding:22px 24px;transition:transform .25s}
+.journey-card:hover{transform:translateY(-3px);border-color:var(--erdtree)}
+.journey-year{font-family:var(--font-display);font-size:26px;letter-spacing:1px;margin-bottom:4px}
+.journey-phase{font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:3px;margin-bottom:12px;font-family:var(--font-display)}
+.journey-games{font-size:12px;color:var(--text-dim);line-height:1.9;font-style:italic}
 
 /* ===== GROUPS ===== */
-.groups-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
-.group-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;display:flex;align-items:center;gap:14px;transition:transform .2s}
-.group-card:hover{transform:translateY(-3px);border-color:var(--border-strong)}
-.group-icon{width:48px;height:48px;border-radius:var(--radius);object-fit:cover;flex-shrink:0}
-.group-info{min-width:0}
-.group-name{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.group-meta{font-size:11px;color:var(--text-muted);margin-top:2px}
+.groups-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.group-card{background:var(--stone-card);border:1px solid var(--stone-border);border-radius:var(--radius);padding:18px;display:flex;align-items:center;gap:12px;transition:transform .25s}
+.group-card:hover{transform:translateY(-3px);border-color:var(--stone-light)}
+.group-icon{width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--stone-border)}
+.group-name{font-family:var(--font-display);font-size:13px;color:var(--parchment);letter-spacing:0.5px}
+.group-meta{font-size:10px;color:var(--text-faint);margin-top:2px}
 
 /* ===== SCROLL REVEAL ===== */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 /* ===== FOOTER ===== */
-.footer{text-align:center;padding:60px 0 40px;border-top:1px solid var(--border);color:var(--text-muted);font-size:13px}
-.footer strong{color:var(--text-dim)}
+.footer{text-align:center;padding:48px 0 40px;border-top:1px solid var(--stone-border);color:var(--text-faint);font-size:12px;font-style:italic}
+.footer strong{color:var(--text-dim);font-style:normal}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
   .nav-links{display:none}
   .hero{padding:120px 0 60px}
-  .hero-stats{gap:12px}
+  .hero::before{height:80px}
+  .hero-stats{gap:10px}
   .stat-card{padding:16px 20px;min-width:100px}
   .hof-grid{grid-template-columns:repeat(2,1fr)}
   .lb-bar-cell{width:60px}
@@ -189,42 +189,37 @@ section{padding:80px 0;position:relative}
   .lb-icon-cell{display:none}
   section{padding:48px 0}
   .timeline{padding-left:24px}
-  .timeline-dot{left:-21px;width:10px;height:10px}
-  .hof-cover{height:100px}
+  .timeline-dot{left:-22px;width:9px;height:9px}
+  .hof-cover{height:90px}
 }
-
 @media(max-width:480px){
   .hof-grid{grid-template-columns:1fr}
   .hero-stats{gap:8px}
-  .stat-card{min-width:80px;padding:12px 14px}
-  .stat-number{font-size:22px}
+  .stat-card{min-width:80px;padding:14px 12px}
+  .stat-number{font-size:20px}
+  .hero-title{font-size:20px;letter-spacing:2px}
   .perfect-grid{grid-template-columns:1fr}
 }
-
-/* ===== SCROLLBAR ===== */
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:var(--void)}
-::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
-::-webkit-scrollbar-thumb:hover{background:var(--text-muted)}
-
-/* ===== LOADING SHIMMER ===== */
-@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
-.loading{background:linear-gradient(90deg,var(--card) 25%,var(--card-hover) 50%,var(--card) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--stone-bg)}
+::-webkit-scrollbar-thumb{background:var(--stone-border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--text-faint)}
 </style>
 </head>
 <body>
 
-<div class="ambient"></div>
+<div class="bg-ambient"></div>
+<canvas id="particles"></canvas>
 
 <nav class="nav">
-  <span style="font-weight:700;color:var(--text);letter-spacing:-0.3px">🐉 勇猛狮子斩！</span>
+  <span style="font-family:var(--font-display);letter-spacing:2px;color:var(--erdtree-light);font-size:13px">⚔ 褪色者</span>
   <div class="nav-links">
-    <a href="#hall-of-fame">Top Games</a>
-    <a href="#leaderboard">Full Library</a>
-    <a href="#perfect">Perfect</a>
-    <a href="#journey">Journey</a>
+    <a href="#hall-of-fame">圣物匣</a>
+    <a href="#leaderboard">编年史</a>
+    <a href="#perfect">暗月祭坛</a>
+    <a href="#journey">交界地</a>
   </div>
-  <div>🟢 Online</div>
+  <span style="font-size:11px;color:var(--erdtree);letter-spacing:1px">✦ 在线</span>
 </nav>
 
 <!-- ===== HERO ===== -->
@@ -232,36 +227,23 @@ section{padding:80px 0;position:relative}
   <div class="container">
     <div class="hero-avatar-wrap reveal">
       <div class="hero-avatar-ring"></div>
-      <img class="hero-avatar" src="https://avatars.steamstatic.com/6889e542266ff1eca9c32d7f405a723a0e19f756_full.jpg" alt="avatar" onerror="this.onerror=null;this.src='https://avatars.cdn.queniuqe.com/6889e542266ff1eca9c32d7f405a723a0e19f756_full.jpg'" style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.12);position:relative;z-index:1">
+      <img class="hero-avatar" src="https://avatars.steamstatic.com/6889e542266ff1eca9c32d7f405a723a0e19f756_full.jpg" alt="avatar" onerror="this.onerror=null;this.src='https://avatars.cdn.queniuqe.com/6889e542266ff1eca9c32d7f405a723a0e19f756_full.jpg'">
     </div>
-    <h1 class="hero-name reveal">勇猛狮子斩！</h1>
-    <p class="hero-location reveal">📍 Wuhan, Hubei, China</p>
-    <p class="hero-since reveal">Steam Member since July 8, 2014 · 12 Years of Gaming</p>
+    <h1 class="hero-title reveal">勇猛狮子斩！</h1>
+    <p class="hero-sub reveal">Wuhan, Hubei · The Lands Between</p>
+    <p class="hero-since reveal">A Tarnished arisen on July 8, 2014 — twelve years beneath the Erdtree</p>
 
     <div class="hero-stats reveal">
-      <div class="stat-card">
-        <div class="stat-number plasma" data-count="15000">0</div>
-        <div class="stat-label">Hours Played</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number coral" data-count="349">0</div>
-        <div class="stat-label">Games Owned</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number gold" data-count="7">0</div>
-        <div class="stat-label">Perfect Games</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number purple" data-count="12">0</div>
-        <div class="stat-label">Years Active</div>
-      </div>
+      <div class="stat-card"><div class="stat-number gold" data-count="15000">0</div><div class="stat-label">Grace Bestowed</div></div>
+      <div class="stat-card"><div class="stat-number scarlet" data-count="349">0</div><div class="stat-label">Relics Gathered</div></div>
+      <div class="stat-card"><div class="stat-number gold" data-count="7">0</div><div class="stat-label">Great Runes</div></div>
+      <div class="stat-card"><div class="stat-number ranni" data-count="12">0</div><div class="stat-label">Moons Passed</div></div>
     </div>
 
-    <!-- Year Heatmap Bar -->
-    <div class="heatvane reveal">
-      <div class="heatvane-label">Yearly Gaming Intensity</div>
-      <div class="heatvane-bar" id="heatvane-bar"></div>
-      <div class="heatvane-labels" id="heatvane-labels"></div>
+    <div class="grace-bar reveal">
+      <div class="grace-label">The Guidance of Grace — Year by Year</div>
+      <div class="grace-track" id="grace-track"></div>
+      <div class="grace-labels" id="grace-labels"></div>
     </div>
   </div>
 </section>
@@ -270,40 +252,39 @@ section{padding:80px 0;position:relative}
 <section id="hall-of-fame">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">Hall of Fame</div>
-      <div class="section-title">All-Time Most Played</div>
-      <div class="section-sub">The eight games that defined a generation of gaming</div>
+      <div class="section-label">▸ Hallowed Relics</div>
+      <div class="section-title">The Eight Sacred Armaments</div>
+      <div class="section-divider"></div>
+      <div class="section-sub">The games that tempered a Tarnished into a Lord</div>
     </div>
     <div class="hof-grid" id="hof-grid"></div>
   </div>
 </section>
 
-<!-- ===== FULL LEADERBOARD ===== -->
+<!-- ===== LEADERBOARD ===== -->
 <section id="leaderboard">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">Game Library</div>
-      <div class="section-title">Complete Playtime Leaderboard</div>
-      <div class="section-sub">Every game with more than a few hours — sorted, searchable, scrollable</div>
+      <div class="section-label">▸ The Great Chronicle</div>
+      <div class="section-title">Every Battle Recorded</div>
+      <div class="section-divider"></div>
     </div>
     <div class="lb-controls reveal">
-      <input type="text" class="lb-search" placeholder="Search 280+ games..." id="lbSearch" autocomplete="off">
+      <input type="text" class="lb-search" placeholder="Search the archives..." id="lbSearch" autocomplete="off">
       <select class="lb-sort" id="lbSort">
-        <option value="hours">Sort by Hours ↓</option>
-        <option value="name">Sort by Name</option>
-        <option value="recent">Sort by Recent</option>
-        <option value="ach">Sort by Achievements</option>
+        <option value="hours">By Grace</option>
+        <option value="name">By Name</option>
+        <option value="recent">By Recency</option>
+        <option value="ach">By Completion</option>
       </select>
     </div>
     <div class="reveal" style="overflow-x:auto">
       <table class="lb-table">
-        <thead>
-          <tr><th>#</th><th></th><th>Game</th><th style="text-align:right">Hours</th><th class="lb-bar-cell">Intensity</th><th style="text-align:right">Achievements</th><th class="lb-date">Last Played</th></tr>
-        </thead>
+        <thead><tr><th></th><th></th><th>Tome</th><th style="text-align:right">Grace</th><th class="lb-bar-cell">Essence</th><th style="text-align:right">Shards</th><th class="lb-date">Last Rite</th></tr></thead>
         <tbody id="lbBody"></tbody>
       </table>
-      <div id="lbPagination" style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px;font-size:13px;color:var(--text-dim)">
-        <button id="lbPrev" class="lb-sort" style="cursor:pointer" disabled>← Prev</button>
+      <div id="lbPagination" style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px;font-size:12px;color:var(--text-dim)">
+        <button id="lbPrev" class="lb-sort" style="cursor:pointer" disabled>← Previous</button>
         <span id="lbPageInfo"></span>
         <button id="lbNext" class="lb-sort" style="cursor:pointer">Next →</button>
       </div>
@@ -315,9 +296,10 @@ section{padding:80px 0;position:relative}
 <section id="perfect">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">100% Club</div>
-      <div class="section-title">Perfect Completions</div>
-      <div class="section-sub">Seven games, every achievement earned — no stone left unturned</div>
+      <div class="section-label">▸ The Dark Moon Shrine</div>
+      <div class="section-title">Perfect Runes — Seven Deeds Complete</div>
+      <div class="section-divider"></div>
+      <div class="section-sub">Every achievement, every shard — the mark of a true elden lord</div>
     </div>
     <div class="perfect-grid" id="perfect-grid"></div>
   </div>
@@ -327,20 +309,21 @@ section{padding:80px 0;position:relative}
 <section id="names">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">Identity Log</div>
-      <div class="section-title">A History of Names</div>
-      <div class="section-sub">Ten aliases across twelve years — each one a chapter</div>
+      <div class="section-label">▸ Names of the Tarnished</div>
+      <div class="section-title">Ten Masks Across Twelve Moons</div>
+      <div class="section-divider"></div>
     </div>
     <div class="timeline" id="timeline"></div>
   </div>
 </section>
 
-<!-- ===== GENRE BREAKDOWN ===== -->
+<!-- ===== GENRES ===== -->
 <section id="genres">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">Taste Profile</div>
-      <div class="section-title">What Kind of Gamer Are You?</div>
+      <div class="section-label">▸ Sites of Grace</div>
+      <div class="section-title">What Kind of Tarnished Are You?</div>
+      <div class="section-divider"></div>
     </div>
     <div class="tag-cloud reveal" id="tag-cloud"></div>
   </div>
@@ -350,9 +333,9 @@ section{padding:80px 0;position:relative}
 <section id="journey">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">Twelve Year Journey</div>
-      <div class="section-title">How It All Played Out</div>
-      <div class="section-sub">From L4D2 to Monster Hunter Wilds — the long arc of a gamer</div>
+      <div class="section-label">▸ The Long March</div>
+      <div class="section-title">Twelve Years Across the Lands Between</div>
+      <div class="section-divider"></div>
     </div>
     <div class="journey-grid" id="journey-grid"></div>
   </div>
@@ -362,85 +345,49 @@ section{padding:80px 0;position:relative}
 <section id="groups">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">Communities</div>
-      <div class="section-title">Where the Squad Is</div>
+      <div class="section-label">▸ Roundtable Hold</div>
+      <div class="section-title">Fellow Tarnished</div>
+      <div class="section-divider"></div>
     </div>
     <div class="groups-grid" id="groups-grid"></div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="container">
-    <p><strong>勇猛狮子斩！</strong> · SteamID: 76561198143906832 · Since 2014</p>
-    <p style="margin-top:4px;font-size:12px">这个人蠢死了，什么都不会写 — but he sure can game</p>
+    <p><strong>勇猛狮子斩！</strong> · SteamID: 76561198143906832 · Arisen 2014</p>
+    <p style="margin-top:4px;font-size:11px">「这个人蠢死了，什么都不会写」— yet in the Lands Between, action speaks louder than words</p>
   </div>
 </footer>
 
 <script>
+// ===== GRACE PARTICLES =====
+(function(){
+  const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+  let w,h,particles=[];
+  function resize(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight}
+  resize();window.addEventListener('resize',resize);
+  for(let i=0;i<40;i++)particles.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5+.3,vx:(Math.random()-.5)*.3,vy:-(Math.random()*.4+.15),o:Math.random()*.4+.1,life:Math.random()*300});
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    particles.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;p.life--;
+      if(p.life<=0||p.y<-10){p.x=Math.random()*w;p.y=h+10;p.life=300+Math.random()*400}
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(199,164,75,${p.o})`;ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
 // ===== GAME DATA =====
-// Steam App ID → cover image URL
-const APPID = {
-  "Warframe":230410,"Garry's Mod":4000,"New World: Aeternum":1063730,
-  "Monster Hunter: World":582010,"Trove":304050,"Apex Legends":1172470,
-  "Warhammer 40K: Darktide":1361210,"Robocraft":301520,
-  "ELDEN RING":1245620,"ELDEN RING NIGHTREIGN":2622380,
-  "HELLDIVERS 2":553850,"Divinity: Original Sin 2":435150,
-  "Sea of Thieves":1172620,"MONSTER HUNTER RISE":1446780,
-  "Baldur's Gate 3":1086940,"Battlefield 2042":1517290,
-  "Rainbow Six Siege":359550,"Tom Clancy's The Division":365590,
-  "Unturned":304930,"Battlefield V":1238810,"Terraria":105600,
-  "The Witcher 3: Wild Hunt":292030,"The Elder Scrolls V: Skyrim":72850,
-  "Slay the Spire 2":2868840,"Valheim":892970,"Battlefield 6":2807960,
-  "ENDLESS Space 2":392110,"BattleBit Remastered":671860,
-  "Sid Meier's Civilization V":8930,"Abiotic Factor":2786950,
-  "Cyberpunk 2077":1091500,"Conan Exiles":440900,"Last Epoch":899770,
-  "Hades":1145360,"Assassin's Creed Odyssey":812140,
-  "Dyson Sphere Program":1366540,"Starbound":211820,"Grim Dawn":219990,
-  "Remnant 2":1282100,"Sid Meier's Civilization VI":289070,
-  "Black Myth: Wukong":2358720,"Monster Hunter Wilds":2246340,
-  "Satisfactory":526870,"Risk of Rain 2":632360,"Starfield":1716740,
-  "Nioh 2":1325200,"Grand Theft Auto V":271590,
-  "The Long Dark":305620,"Granblue Fantasy: Relink":881020,
-  "ARMORED CORE VI":1888160,"Dead Cells":588650,
-  "Left 4 Dead 2":550,"No Man's Sky":275850,"Marvel Rivals":2767030,
-  "Borderlands 3":397540,"Naraka: Bladepoint":1203220,
-  "Sekiro: Shadows Die Twice":814380,"The Forest":242760,
-  "Black Desert":582660,"Borderlands 2":49520,"Dying Light":239140,
-  "Borderlands 4":2314740,"For Honor":304390,"Prey":480490,
-  "Saints Row IV":206420,"DOOM Eternal":782330,"Hollow Knight":367520,
-  "Deep Rock Galactic":548430,"Devil May Cry 5":601150,
-  "Stellar Blade":2951250,"Resident Evil 4":2050650,
-  "Kingdom Come: Deliverance":379430,"Counter-Strike 2":730,
-  "Halo Infinite":1240440,"DEATH STRANDING":1190460,
-  "The Witcher 2":20920,"Project Zomboid":108600,
-  "Stardew Valley":413150,"Fallout 4":377160,"DOOM":379720,
-  "Slay the Spire":646570,"Tomb Raider":203160,"Rise of the Tomb Raider":391220,
-  "Shadow of the Tomb Raider":750920,"Outer Wilds":753640,
-  "Disco Elysium":632470,"Deadlock":1422450,"Hades II":1145350,
-  "Balatro":2379780,"Monster Train 2":2872840,"Hunt: Showdown 1896":594650,
-  "PAYDAY 2":218620,"GTFO":493520,"Cooking Simulator":641320,
-  "Wallpaper Engine":431960,"Dota Underlords":1046930,
-  "Lords of the Fallen":1501750,"DEATH STRANDING 2":2994740,
-  "ELDEN RING NIGHTREIGN":2622380,"METAL GEAR SOLID V: THE PHANTOM PAIN":287700,
-  "METAL GEAR SOLID V: GROUND ZEROES":311340,
-  "Wolfenstein: The New Order":201810,"Wolfenstein II: The New Colossus":612880,
-  "Wolfenstein: The Old Blood":350080,"Wolfenstein: Youngblood":1056960,
-  "Resident Evil 2":883710,"Resident Evil 3":952060,
-  "Resident Evil 7 Biohazard":418370,"Resident Evil Village":1196590,
-  "Red Dead Redemption 2":1174180,"Forza Horizon 4":1293830,
-  "Elite Dangerous":359320,"ARK: Survival Evolved":346110,
-  "Company of Heroes 2":231430,"Killing Floor 2":232090,
-  "Assassin's Creed Origins":582160,"Assassin's Creed Unity":289650,
-  "Assassin's Creed Syndicate":368500,"Assassin's Creed Rogue":242560,
-  "DiRT Rally":310560,"METAL GEAR SOLID V: THE PHANTOM PAIN":287700,
-  "Serious Sam HD: The First Encounter":41000,"Serious Sam HD: TFE":41000,
-};
 const CDN='https://cdn.cloudflare.steamstatic.com';
+const APPID={ "Warframe":230410,"Garry's Mod":4000,"New World: Aeternum":1063730,"Monster Hunter: World":582010,"Trove":304050,"Apex Legends":1172470,"Warhammer 40K: Darktide":1361210,"Robocraft":301520,"ELDEN RING":1245620,"ELDEN RING NIGHTREIGN":2622380,"HELLDIVERS 2":553850,"Divinity: Original Sin 2":435150,"Sea of Thieves":1172620,"MONSTER HUNTER RISE":1446780,"Baldur's Gate 3":1086940,"Battlefield 2042":1517290,"Rainbow Six Siege":359550,"Tom Clancy's The Division":365590,"Unturned":304930,"Battlefield V":1238810,"Terraria":105600,"The Witcher 3: Wild Hunt":292030,"The Elder Scrolls V: Skyrim":72850,"Slay the Spire 2":2868840,"Valheim":892970,"Battlefield 6":2807960,"ENDLESS Space 2":392110,"BattleBit Remastered":671860,"Sid Meier's Civilization V":8930,"Abiotic Factor":2786950,"Cyberpunk 2077":1091500,"Conan Exiles":440900,"Last Epoch":899770,"Hades":1145360,"Assassin's Creed Odyssey":812140,"Dyson Sphere Program":1366540,"Starbound":211820,"Grim Dawn":219990,"Remnant 2":1282100,"Sid Meier's Civilization VI":289070,"Black Myth: Wukong":2358720,"Monster Hunter Wilds":2246340,"Satisfactory":526870,"Risk of Rain 2":632360,"Starfield":1716740,"Nioh 2":1325200,"Grand Theft Auto V":271590,"The Long Dark":305620,"Granblue Fantasy: Relink":881020,"ARMORED CORE VI":1888160,"Dead Cells":588650,"Left 4 Dead 2":550,"No Man's Sky":275850,"Marvel Rivals":2767030,"Borderlands 3":397540,"Naraka: Bladepoint":1203220,"Sekiro: Shadows Die Twice":814380,"The Forest":242760,"Black Desert":582660,"Borderlands 2":49520,"Dying Light":239140,"Borderlands 4":2314740,"For Honor":304390,"Prey":480490,"Saints Row IV":206420,"DOOM Eternal":782330,"Hollow Knight":367520,"Deep Rock Galactic":548430,"Devil May Cry 5":601150,"Stellar Blade":2951250,"Resident Evil 4":2050650,"Kingdom Come: Deliverance":379430,"Counter-Strike 2":730,"Halo Infinite":1240440,"DEATH STRANDING":1190460,"The Witcher 2":20920,"Project Zomboid":108600,"Stardew Valley":413150,"Fallout 4":377160,"DOOM":379720,"Slay the Spire":646570,"Outer Wilds":753640,"Disco Elysium":632470,"Deadlock":1422450,"Hades II":1145350,"Balatro":2379780,"Hunt: Showdown 1896":594650,"PAYDAY 2":218620,"GTFO":493520,"Wallpaper Engine":431960,"Lords of the Fallen":1501750,"DEATH STRANDING 2":2994740,"Red Dead Redemption 2":1174180,"Forza Horizon 4":1293830,"Elite Dangerous":359320,"ARK: Survival Evolved":346110,"Killing Floor 2":232090,"Resident Evil 2":883710,"Resident Evil 3":952060,"Resident Evil 7 Biohazard":418370,"Resident Evil Village":1196590,"Serious Sam HD: TFE":41000,"Serious Sam HD: The First Encounter":41000 };
 function coverUrl(name){const id=APPID[name];return id?`${CDN}/steam/apps/${id}/header.jpg`:null;}
 function capUrl(name){const id=APPID[name];return id?`${CDN}/steam/apps/${id}/capsule_231x87.jpg`:null;}
 
-const games = [
+const games=[
   {n:"Warframe",h:2825,a:[182,193],d:"2025-06-19",g:["looter-shooter","coop-pve"]},
   {n:"Garry's Mod",h:2025.3,a:[11,29],d:"2025-06-22",g:["sandbox","multiplayer"]},
   {n:"New World: Aeternum",h:1085,a:[78,133],d:"2023-10-29",g:["mmorpg","open-world"]},
@@ -539,7 +486,7 @@ const games = [
   {n:"AI LIMIT",h:24.2,a:[25,39],d:"2025-04-09",g:["soulslike","action-rpg"]},
   {n:"Rise of the Tomb Raider",h:23.8,a:[42,143],d:"2020-02-17",g:["action","open-world"]},
   {n:"Core Keeper",h:23.7,a:[0,55],d:"2024-01-05",g:["survival","sandbox"]},
-  {n:"Wallpaper Engine",h:22.9,a:[6,17],d:"2025-10-22",g:["utility",""]},
+  {n:"Wallpaper Engine",h:22.9,a:[6,17],d:"2025-10-22",g:["utility"]},
   {n:"Otherworld Outbreak",h:22.6,a:[58,102],d:"2024-04-30",g:["roguelike","strategy"]},
   {n:"Balatro",h:22.2,a:[12,31],d:"2025-05-21",g:["roguelike","deckbuilder"]},
   {n:"Outer Wilds",h:21.8,a:[3,31],d:"2025-09-08",g:["exploration","puzzle"]},
@@ -630,7 +577,7 @@ const games = [
   {n:"20 Minutes Till Dawn",h:4.3,a:[2,34],d:"2022-07-10",g:["roguelike","action"]},
   {n:"Reigns",h:4.1,a:[3,13],d:"2021-09-24",g:["card-game","indie"]},
   {n:"Steep",h:4.1,a:[0,41],d:"2019-06-13",g:["sports","open-world"]},
-  {n:"Blender",h:4.1,a:[0,0],d:"2025-12-07",g:["software",""]},
+  {n:"Blender",h:4.1,a:[0,0],d:"2025-12-07",g:["software"]},
   {n:"Melody's Escape",h:4.1,a:[3,8],d:"2019-05-27",g:["rhythm","indie"]},
   {n:"TES IV: Oblivion Remastered",h:4.1,a:[4,60],d:"2025-05-22",g:["action-rpg","open-world"]},
   {n:"Slay the Spire",h:4,a:[7,46],d:"2025-03-11",g:["roguelike","deckbuilder"]},
@@ -676,7 +623,6 @@ const games = [
   {n:"Helltaker",h:1.1,a:[3,10],d:"2020-06-30",g:["puzzle","indie"]},
   {n:"APB Reloaded",h:1.1,a:[0,60],d:"2015-03-14",g:["mmo","shooter"]},
   {n:"The First Descendant",h:0.9,a:[2,24],d:"2024-12-20",g:["looter-shooter","coop-pve"]},
-  {n:"VOID/BREAKER Playtest",h:0.9,a:[0,0],d:"2025-04-16",g:["action","indie"]},
   {n:"Shadow Warrior 2",h:0.9,a:[1,64],d:"2019-06-29",g:["fps","action"]},
   {n:"Deadlock",h:0.8,a:[0,0],d:"2024-09-05",g:["moba","shooter"]},
   {n:"Tiny Glade",h:0.8,a:[0,0],d:"2024-12-22",g:["casual","building"]},
@@ -686,16 +632,15 @@ const games = [
   {n:"MGS V: Ground Zeroes",h:0.02,a:[0,16],d:"2025-12-11",g:["stealth","action"]},
 ];
 
-const perfectGames = [
+const perfectGames=[
   {n:"The Witcher 3: Wild Hunt",h:153.3,ach:"78/78",icon:"⚔️"},
-  {n:"HELLDIVERS 2",h:299.9,ach:"38/38",icon:"🪖"},
+  {n:"HELLDIVERS 2",h:299.9,ach:"38/38",icon:"🌙"},
   {n:"ELDEN RING NIGHTREIGN",h:305.3,ach:"37/37",icon:"🌑"},
-  {n:"Apex Legends",h:428,ach:"12/12",icon:"🔫"},
+  {n:"Apex Legends",h:428,ach:"12/12",icon:"⭐"},
   {n:"Serious Sam HD: TFE",h:3.7,ach:"35/35",icon:"💀"},
   {n:"PRICE",h:1.2,ach:"8/8",icon:"🎭"},
 ];
-
-const nameHistory = [
+const nameHistory=[
   {name:"勇猛狮子斩！",date:"2025-01-24",note:"Current"},
   {name:"吐酸泰坦",date:"2025-01-24",note:""},
   {name:"金载圭部长",date:"2025-01-24",note:""},
@@ -704,34 +649,30 @@ const nameHistory = [
   {name:"勇猛狮子斩!",date:"2024-06-22",note:""},
   {name:"Spike man!",date:"2023-04-14",note:""},
   {name:"FAQ RESPAWN",date:"2023-02-15",note:""},
-  {name:"( ｣ﾟДﾟ)｣＜快看边缘行者、孤独摇滚！",date:"2022-11-26",note:"Cyberpunk Edgerunners fan"},
-  {name:"( ｣ﾟДﾟ)｣＜快看边缘行者！",date:"2022-10-22",note:"Cyberpunk Edgerunners fan"},
+  {name:"( ｣ﾟДﾟ)｣＜快看边缘行者、孤独摇滚！",date:"2022-11-26",note:"EdgeRunner"},
+  {name:"( ｣ﾟДﾟ)｣＜快看边缘行者！",date:"2022-10-22",note:"EdgeRunner"},
 ];
-
-const groups = [
+const groups=[
   {name:"AC岛",icon:"https://avatars.cdn.queniuqe.com/d2a4feef5ee240a4703ba716b44385e3b68052c5.jpg",members:304,online:60},
   {name:"Nexus Sites",icon:"https://avatars.cdn.queniuqe.com/530c4f4bab567d48168c5781f1b7d4ad3b278681.jpg",members:22819,online:4357},
   {name:"星缘天空",icon:"https://avatars.cdn.queniuqe.com/7e3acb263e32b24f422544b1d9062b110f4b514f.jpg",members:6693,online:1033},
 ];
-
-const yearData = [
-  {year:2014,est:200,phase:"The Beginning",games:"L4D2, CS2, Happy Wars"},
-  {year:2015,est:400,phase:"Discovery",games:"Borderlands Pre-Sequel, Card Hunter, Darksiders"},
-  {year:2016,est:600,phase:"Exploration",games:"Skyrim, Clicker Heroes, Contagion, Just Survive"},
-  {year:2017,est:850,phase:"Going Deep",games:"Starbound, Terraria, Just Cause 3, Saints Row IV"},
-  {year:2018,est:950,phase:"Branching Out",games:"Warframe ramps up, For Honor, GTA V, DOOM"},
-  {year:2019,est:1200,phase:"Golden Era",games:"Civ V+VI, Borderlands 2, Apex Legends, Prey"},
-  {year:2020,est:1500,phase:"Peak Gaming",games:"Warframe grind, The Division, Grim Dawn"},
-  {year:2021,est:1800,phase:"Hardcore",games:"Dying Light, MH World, Sea of Thieves"},
-  {year:2022,est:2200,phase:"All In",games:"ELDEN RING, DOS2, Sekiro, Valheim, V Rising"},
-  {year:2023,est:2100,phase:"Diversifying",games:"BG3, New World, MH Rise, Starfield"},
-  {year:2024,est:2000,phase:"Refined Taste",games:"HD2, ER Shadow, Hades, Remnant 2"},
-  {year:2025,est:1800,phase:"Seasoned Pro",games:"MH Wilds, Black Myth: Wukong, Darktide, BF6"},
-  {year:2026,est:400,phase:"Still Going",games:"ER Nightreign, Warframe still alive!"},
+const yearData=[
+  {year:2014,est:200,phase:"The Awakening",games:"L4D2, CS2, Happy Wars"},
+  {year:2015,est:400,phase:"First Steps",games:"Borderlands Pre-Sequel, Card Hunter, Darksiders"},
+  {year:2016,est:600,phase:"Gathering Strength",games:"Skyrim, Clicker Heroes, Contagion"},
+  {year:2017,est:850,phase:"Stormveil",games:"Starbound, Terraria, Just Cause 3, Saints Row IV"},
+  {year:2018,est:950,phase:"Liurnia",games:"Warframe ascends, For Honor, GTA V, DOOM"},
+  {year:2019,est:1200,phase:"Caelid",games:"Civ V+VI, Borderlands 2, Apex Legends, Prey"},
+  {year:2020,est:1500,phase:"Altus Plateau",games:"Warframe peak, The Division, Grim Dawn"},
+  {year:2021,est:1800,phase:"Mount Gelmir",games:"Dying Light, MH World, Sea of Thieves"},
+  {year:2022,est:2200,phase:"Mountaintops",games:"ELDEN RING, DOS2, Sekiro, Valheim, V Rising"},
+  {year:2023,est:2100,phase:"Farum Azula",games:"BG3, New World, MH Rise, Starfield"},
+  {year:2024,est:2000,phase:"Leyndell Ashes",games:"HD2, ER Nightreign, Hades, Remnant 2"},
+  {year:2025,est:1800,phase:"The Final Battle",games:"MH Wilds, Black Myth: Wukong, Darktide, BF6"},
+  {year:2026,est:400,phase:"Age of Stars",games:"ER Nightreign, Warframe eternal!"},
 ];
-
-// Genre tags for cloud
-const genres = [
+const genres=[
   {label:"动作RPG",weight:10},{label:"协作PVE",weight:9.5},{label:"魂系",weight:9},
   {label:"开放世界",weight:8},{label:"生存建造",weight:7.5},{label:"FPS",weight:7},
   {label:"Roguelike",weight:7},{label:"多人联机",weight:6.5},{label:"刷子射击",weight:6},
@@ -743,221 +684,102 @@ const genres = [
 
 // ===== RENDER =====
 
-// Heatvane
+// Grace bar (year heatmap)
 (function(){
-  const bar = document.getElementById('heatvane-bar');
-  const labels = document.getElementById('heatvane-labels');
-  const maxEst = Math.max(...yearData.map(y=>y.est));
+  const bar=document.getElementById('grace-track'),labels=document.getElementById('grace-labels');
+  const maxEst=Math.max(...yearData.map(y=>y.est));
   yearData.forEach(y=>{
-    const div = document.createElement('div');
-    div.className = 'heatvane-year';
-    const ratio = y.est/maxEst;
-    const hue = 160 + (1-ratio)*140; // teal(160) -> warm(300)
-    div.style.background = `hsl(${hue},80%,${30+ratio*30}%)`;
-    div.title = `${y.year}: ~${y.est}h — ${y.games}`;
+    const div=document.createElement('div');div.className='grace-year';
+    const ratio=y.est/maxEst;
+    const r=199+ratio*30,g=164-ratio*30,b=75-ratio*10;
+    div.style.background=`rgb(${r},${g},${b})`;
+    div.title=`${y.year}: ~${y.est}h — ${y.games}`;
     bar.appendChild(div);
   });
-  yearData.forEach(y=>{
-    const span = document.createElement('span');
-    span.textContent = y.year;
-    labels.appendChild(span);
-  });
+  yearData.forEach(y=>{const s=document.createElement('span');s.textContent=y.year;labels.appendChild(s);});
 })();
 
 // Hall of Fame
 (function(){
-  const grid = document.getElementById('hof-grid');
-  const top8 = games.slice(0,8);
-  const maxH = top8[0].h;
-  const colors = ['gold','plasma','coral','plasma','coral','gold','plasma','coral'];
-  const emoji = ['👑','🥈','🥉','⚔️','🏹','🔫','🪖','🤖'];
+  const grid=document.getElementById('hof-grid'),top8=games.slice(0,8),maxH=top8[0].h;
+  const colors=['gold','gold','ranni','gold','ranni','scarlet','ranni','scarlet'];
+  const emoji=['👑','⚔️','🌙','🗡️','🛡️','🏹','⭐','💀'];
   top8.forEach((g,i)=>{
-    const card = document.createElement('div');
-    card.className = `hof-card reveal rank-${i+1}`;
-    const ratio = g.h/maxH;
-    const achPct = g.a[1] ? Math.round(g.a[0]/g.a[1]*100) : 0;
-    const cov = coverUrl(g.n);
-    const coverHTML = cov
-      ? `<img class="hof-cover" src="${cov}" alt="${g.n}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'hof-cover-placeholder',textContent:'${emoji[i]}'}))">`
-      : `<div class="hof-cover-placeholder">${emoji[i]}</div>`;
-    card.innerHTML = `
-      ${coverHTML}
+    const card=document.createElement('div');card.className='hof-card reveal';
+    const achPct=g.a[1]?Math.round(g.a[0]/g.a[1]*100):0;
+    const cov=coverUrl(g.n);
+    card.innerHTML=`
+      ${cov?`<img class="hof-cover" src="${cov}" alt="${g.n}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'hof-cover-placeholder',textContent:'${emoji[i]}'}))">`:`<div class="hof-cover-placeholder">${emoji[i]}</div>`}
       <div class="hof-body">
-        <div class="hof-rank">#${i+1}</div>
+        <div class="hof-rank">Relic ${i+1}</div>
         <div class="hof-name">${g.n}</div>
         <div class="hof-hours ${colors[i]}">${g.h.toLocaleString()}h</div>
-        <div class="hof-bar"><div class="hof-bar-fill" style="width:0%;background:var(--${['gold','plasma','coral'][Math.min(i,2)]})" data-width="${ratio*100}"></div></div>
-        <div class="hof-meta">
-          <span>${g.a[1] ? '🏆 '+g.a[0]+'/'+g.a[1] : '—'}</span>
-          <span>${achPct}%</span>
-        </div>
+        <div class="hof-bar"><div class="hof-bar-fill" style="width:0%;background:var(--erdtree${i<2?'-light':''})" data-width="${g.h/maxH*100}"></div></div>
+        <div class="hof-meta"><span>${g.a[1]?'⚔ '+g.a[0]+'/'+g.a[1]:'—'}</span><span>${achPct}%</span></div>
       </div>`;
     grid.appendChild(card);
   });
 })();
 
-// Leaderboard with pagination (10 per page)
+// Leaderboard (paginated)
 (function(){
-  const tbody = document.getElementById('lbBody');
-  const pageInfo = document.getElementById('lbPageInfo');
-  const prevBtn = document.getElementById('lbPrev');
-  const nextBtn = document.getElementById('lbNext');
-  const searchEl = document.getElementById('lbSearch');
-  const sortEl = document.getElementById('lbSort');
-  let sortKey = 'hours', sortDesc = true;
-  let sorted = [];
-  let page = 0;
-  const PER = 10;
+  const tbody=document.getElementById('lbBody'),pageInfo=document.getElementById('lbPageInfo'),prevBtn=document.getElementById('lbPrev'),nextBtn=document.getElementById('lbNext'),searchEl=document.getElementById('lbSearch'),sortEl=document.getElementById('lbSort');
+  let sortKey='hours',sortDesc=true,sorted=[],page=0;const PER=10;
 
   function getSorted(filter){
-    const f = filter.toLowerCase();
-    const filtered = games.filter(g=>g.n.toLowerCase().includes(f));
+    const f=filter.toLowerCase(),filtered=games.filter(g=>g.n.toLowerCase().includes(f));
     return [...filtered].sort((a,b)=>{
       let va,vb;
       if(sortKey==='hours'){va=a.h;vb=b.h}
       else if(sortKey==='name'){va=a.n.toLowerCase();vb=b.n.toLowerCase();return va<vb?-1:va>vb?1:0}
       else if(sortKey==='recent'){va=a.d||'0000';vb=b.d||'0000'}
       else if(sortKey==='ach'){va=a.a[1]?a.a[0]/a.a[1]:0;vb=b.a[1]?b.a[0]/b.a[1]:0}
-      return sortDesc ? vb-va : va-vb;
+      return sortDesc?vb-va:va-vb;
     });
   }
 
   function renderPage(){
-    // Clear tbody
-    while(tbody.firstChild) tbody.removeChild(tbody.firstChild);
-
-    if(!sorted.length){
-      pageInfo.textContent = 'No results';
-      prevBtn.disabled = true; nextBtn.disabled = true;
-      return;
-    }
-
-    const total = sorted.length;
-    const maxPage = Math.max(0, Math.ceil(total/PER)-1);
-    if(page>maxPage) page=maxPage;
-    if(page<0) page=0;
-
-    const start = page*PER;
-    const end = Math.min(start+PER, total);
-    const slice = sorted.slice(start, end);
-    const maxH = slice[0]?.h||1;
-
+    while(tbody.firstChild)tbody.removeChild(tbody.firstChild);
+    if(!sorted.length){pageInfo.textContent='No records found';prevBtn.disabled=true;nextBtn.disabled=true;return;}
+    const total=sorted.length,maxPage=Math.max(0,Math.ceil(total/PER)-1);
+    if(page>maxPage)page=maxPage;if(page<0)page=0;
+    const start=page*PER,end=Math.min(start+PER,total),slice=sorted.slice(start,end),maxH=slice[0]?.h||1;
     slice.forEach((g,i)=>{
-      const tr = document.createElement('tr');
-      const ratio = g.h/maxH;
-      const hue = 165+(1-ratio)*35;
-      const barColor = `hsl(${hue},80%,${40+ratio*15}%)`;
-      const achPct = g.a[1] ? Math.round(g.a[0]/g.a[1]*100) : -1;
-      const achText = g.a[1] ? `${g.a[0]}/${g.a[1]}` : '—';
-      const idx = i+1;
-
-      // Rank cell
-      const tdRank = tr.insertCell();
-      tdRank.className = 'lb-rank';
-      tdRank.textContent = idx;
-
-      // Icon cell
-      const tdIcon = tr.insertCell();
-      tdIcon.className = 'lb-icon-cell';
-      tdIcon.style.cssText = 'width:120px;padding-right:0';
-      const cap = capUrl(g.n);
-      if(cap){
-        const img = document.createElement('img');
-        img.className = 'lb-icon';
-        img.src = cap;
-        img.alt = '';
-        img.loading = 'lazy';
-        img.onerror = function(){this.style.display='none';};
-        tdIcon.appendChild(img);
-      }
-
-      // Name cell
-      const tdName = tr.insertCell();
-      const nameSpan = document.createElement('span');
-      nameSpan.className = 'lb-name-text';
-      nameSpan.textContent = g.n;
-      tdName.appendChild(nameSpan);
-      if(g.g&&g.g[0]){
-        const sm = document.createElement('small');
-        sm.textContent = g.g.slice(0,2).join(' · ');
-        nameSpan.appendChild(sm);
-      }
-
-      // Hours cell
-      const tdHours = tr.insertCell();
-      tdHours.className = 'lb-hours';
-      tdHours.style.cssText = `color:${barColor};text-align:right;font-weight:600`;
-      tdHours.textContent = g.h.toLocaleString()+'h';
-
-      // Bar cell
-      const tdBar = tr.insertCell();
-      tdBar.className = 'lb-bar-cell';
-      const barOuter = document.createElement('div');
-      barOuter.className = 'lb-bar';
-      const barFill = document.createElement('div');
-      barFill.className = 'lb-bar-fill';
-      barFill.style.cssText = `width:${ratio*100}%;background:${barColor}`;
-      barOuter.appendChild(barFill);
-      tdBar.appendChild(barOuter);
-
-      // Achievements cell
-      const tdAch = tr.insertCell();
-      tdAch.className = 'lb-ach';
-      if(achPct>=0){
-        if(achPct===100) tdAch.classList.add('green');
-        else if(achPct>=80) tdAch.classList.add('green');
-        tdAch.textContent = achPct+'% '+achText;
-      } else {
-        tdAch.textContent = achText;
-      }
-
-      // Date cell
-      const tdDate = tr.insertCell();
-      tdDate.className = 'lb-date';
-      tdDate.textContent = g.d||'—';
-
+      const tr=document.createElement('tr'),ratio=g.h/maxH,hue=34+(1-ratio)*20,barColor=`hsl(${hue},60%,${35+ratio*20}%)`,achPct=g.a[1]?Math.round(g.a[0]/g.a[1]*100):-1,achText=g.a[1]?`${g.a[0]}/${g.a[1]}`:'—';
+      const tdRank=tr.insertCell();tdRank.className='lb-rank';tdRank.textContent=i+1;
+      const tdIcon=tr.insertCell();tdIcon.className='lb-icon-cell';tdIcon.style.cssText='width:115px;padding-right:0';
+      const cap=capUrl(g.n);if(cap){const img=document.createElement('img');img.className='lb-icon';img.src=cap;img.alt='';img.loading='lazy';img.onerror=function(){this.style.display='none';};tdIcon.appendChild(img);}
+      const tdName=tr.insertCell();const ns=document.createElement('span');ns.className='lb-name-text';ns.textContent=g.n;tdName.appendChild(ns);
+      if(g.g&&g.g[0]){const sm=document.createElement('small');sm.textContent=g.g.slice(0,2).join(' · ');ns.appendChild(sm);}
+      const tdHours=tr.insertCell();tdHours.className='lb-hours';tdHours.style.cssText=`color:${barColor};text-align:right;font-weight:400`;tdHours.textContent=g.h.toLocaleString()+'h';
+      const tdBar=tr.insertCell();tdBar.className='lb-bar-cell';const bo=document.createElement('div');bo.className='lb-bar';const bf=document.createElement('div');bf.className='lb-bar-fill';bf.style.cssText=`width:${ratio*100}%;background:${barColor}`;bo.appendChild(bf);tdBar.appendChild(bo);
+      const tdAch=tr.insertCell();tdAch.className='lb-ach';if(achPct>=0){if(achPct===100||achPct>=80)tdAch.classList.add('green');tdAch.textContent=achPct+'% '+achText;}else{tdAch.textContent=achText;}
+      const tdDate=tr.insertCell();tdDate.className='lb-date';tdDate.textContent=g.d||'—';
       tbody.appendChild(tr);
     });
-
-    pageInfo.textContent = `Page ${page+1} / ${maxPage+1} · ${total} games`;
-    prevBtn.disabled = page<=0;
-    nextBtn.disabled = page>=maxPage;
+    pageInfo.textContent=`Page ${page+1} / ${maxPage+1} · ${total} tomes`;
+    prevBtn.disabled=page<=0;nextBtn.disabled=page>=maxPage;
   }
 
-  function refresh(){
-    sorted = getSorted(searchEl.value);
-    page = 0;
-    renderPage();
-  }
-
+  function refresh(){sorted=getSorted(searchEl.value);page=0;renderPage();}
   prevBtn.addEventListener('click',()=>{if(page>0){page--;renderPage();}});
-  nextBtn.addEventListener('click',()=>{
-    const max=Math.max(0,Math.ceil(sorted.length/PER)-1);
-    if(page<max){page++;renderPage();}
-  });
+  nextBtn.addEventListener('click',()=>{const max=Math.max(0,Math.ceil(sorted.length/PER)-1);if(page<max){page++;renderPage();}});
   searchEl.addEventListener('input',refresh);
-  sortEl.addEventListener('change',()=>{
-    sortKey = sortEl.value; sortDesc = sortKey!=='name';
-    refresh();
-  });
+  sortEl.addEventListener('change',()=>{sortKey=sortEl.value;sortDesc=sortKey!=='name';refresh();});
   refresh();
 })();
 
 // Perfect Games
 (function(){
-  const grid = document.getElementById('perfect-grid');
+  const grid=document.getElementById('perfect-grid');
   perfectGames.forEach(g=>{
-    const card = document.createElement('div');
-    card.className = 'perfect-card reveal';
-    const cov = coverUrl(g.n);
-    const coverHTML = cov
-      ? `<img src="${cov}" alt="${g.n}" style="width:100%;height:100px;object-fit:cover;border-radius:6px;margin-bottom:12px;background:var(--surface)" loading="lazy" onerror="this.style.display='none'">`
-      : '';
-    card.innerHTML = `
-      ${coverHTML}
+    const card=document.createElement('div');card.className='perfect-card reveal';
+    const cov=coverUrl(g.n);
+    card.innerHTML=`
+      ${cov?`<img class="perfect-cover" src="${cov}" alt="${g.n}" loading="lazy" onerror="this.style.display='none'">`:''}
       <div class="perfect-badge">${g.icon}</div>
       <div class="perfect-name">${g.n}</div>
-      <div class="perfect-ach">${g.ach} achievements</div>
+      <div class="perfect-ach">${g.ach} shards</div>
       <div class="perfect-hours">${g.h.toLocaleString()}h</div>`;
     grid.appendChild(card);
   });
@@ -965,120 +787,58 @@ const genres = [
 
 // Name Timeline
 (function(){
-  const tl = document.getElementById('timeline');
+  const tl=document.getElementById('timeline');
   nameHistory.forEach((entry,i)=>{
-    const div = document.createElement('div');
-    div.className = 'timeline-item reveal';
-    div.innerHTML = `
-      <div class="timeline-dot" style="border-color:${i===0?'var(--plasma)':'var(--border-strong)'}"></div>
-      <div class="timeline-name">${entry.name}${entry.note?` <span style="font-size:11px;color:var(--text-muted);font-weight:400">— ${entry.note}</span>`:''}</div>
-      <div class="timeline-date">${entry.date}</div>`;
+    const div=document.createElement('div');div.className='timeline-item reveal';
+    div.innerHTML=`<div class="timeline-dot" style="border-color:${i===0?'var(--erdtree)':'var(--stone-border)'}"></div><div class="timeline-name">${entry.name}${entry.note?` <span style="font-size:10px;color:var(--text-faint);font-style:italic">— ${entry.note}</span>`:''}</div><div class="timeline-date">${entry.date}</div>`;
     tl.appendChild(div);
   });
 })();
 
 // Genre Cloud
 (function(){
-  const cloud = document.getElementById('tag-cloud');
-  genres.forEach(g=>{
-    const tag = document.createElement('span');
-    tag.className = 'tag';
-    if(g.weight>=10) tag.className += ' giant';
-    else if(g.weight>=8) tag.className += ' large';
-    tag.textContent = g.label;
-    cloud.appendChild(tag);
-  });
+  const cloud=document.getElementById('tag-cloud');
+  genres.forEach(g=>{const tag=document.createElement('span');tag.className='tag';if(g.weight>=10)tag.className+=' giant';else if(g.weight>=8)tag.className+=' large';tag.textContent=g.label;cloud.appendChild(tag);});
 })();
 
 // Journey
 (function(){
-  const grid = document.getElementById('journey-grid');
+  const grid=document.getElementById('journey-grid');
   yearData.forEach(y=>{
-    const card = document.createElement('div');
-    card.className = 'journey-card reveal';
-    const hue = 165 + (1-y.est/2200)*140;
-    card.innerHTML = `
-      <div class="journey-year" style="color:hsl(${hue},80%,55%)">${y.year}</div>
-      <div class="journey-phase">${y.phase}</div>
-      <div class="journey-games">${y.games}</div>`;
+    const card=document.createElement('div');card.className='journey-card reveal';
+    const hue=34+(1-y.est/2200)*20;
+    card.innerHTML=`<div class="journey-year" style="color:hsl(${hue},60%,55%)">${y.year}</div><div class="journey-phase">${y.phase}</div><div class="journey-games">${y.games}</div>`;
     grid.appendChild(card);
   });
 })();
 
 // Groups
 (function(){
-  const grid = document.getElementById('groups-grid');
+  const grid=document.getElementById('groups-grid');
   groups.forEach(g=>{
-    const card = document.createElement('div');
-    card.className = 'group-card reveal';
-    card.innerHTML = `
-      <img class="group-icon" src="${g.icon}" alt="${g.name}" onerror="this.style.display='none'">
-      <div class="group-info">
-        <div class="group-name">${g.name}</div>
-        <div class="group-meta">${g.members.toLocaleString()} members · ${g.online} online</div>
-      </div>`;
+    const card=document.createElement('div');card.className='group-card reveal';
+    card.innerHTML=`<img class="group-icon" src="${g.icon}" alt="${g.name}" onerror="this.style.display='none'"><div class="group-info"><div class="group-name">${g.name}</div><div class="group-meta">${g.members.toLocaleString()} members · ${g.online} online</div></div>`;
     grid.appendChild(card);
   });
 })();
 
 // ===== ANIMATIONS =====
-// Intersection Observer for scroll reveal
-const revealObserver = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:0.1});
-
-document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
-
-// Animate bars on scroll
-const barObserver = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const fill = e.target;
-      const w = fill.dataset.width;
-      if(w){fill.style.width=w+'%';}
-    }
-  });
-},{threshold:0.2});
-
-document.querySelectorAll('.hof-bar-fill, .lb-bar-fill').forEach(el=>barObserver.observe(el));
+const revealObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
 
 // Counter animation
 function animateCounters(){
   document.querySelectorAll('.stat-number[data-count]').forEach(el=>{
-    const target = parseInt(el.dataset.count);
-    const duration = 2000;
-    const start = performance.now();
-    function update(now){
-      const elapsed = now-start;
-      const progress = Math.min(elapsed/duration,1);
-      const eased = 1-Math.pow(1-progress,3); // easeOutCubic
-      const current = Math.floor(eased*target);
-      el.textContent = current.toLocaleString();
-      if(progress<1) requestAnimationFrame(update);
-    }
+    const target=parseInt(el.dataset.count),dur=2200,start=performance.now();
+    function update(now){const p=Math.min((now-start)/dur,1),eased=1-Math.pow(1-p,3);el.textContent=Math.floor(eased*target).toLocaleString();if(p<1)requestAnimationFrame(update);}
     requestAnimationFrame(update);
   });
 }
+const heroObs=new IntersectionObserver((entries)=>{if(entries[0].isIntersecting){animateCounters();heroObs.disconnect();}},{threshold:.3});
+heroObs.observe(document.querySelector('.hero-stats'));
 
-// Trigger counter when hero is visible
-const heroObserver = new IntersectionObserver((entries)=>{
-  if(entries[0].isIntersecting){
-    animateCounters();
-    heroObserver.disconnect();
-  }
-},{threshold:0.3});
-heroObserver.observe(document.querySelector('.hero-stats'));
-
-// Trigger bars on load for visible elements
-setTimeout(()=>{
-  document.querySelectorAll('.hof-bar-fill, .lb-bar-fill').forEach(el=>{
-    const rect = el.getBoundingClientRect();
-    if(rect.top < window.innerHeight && rect.bottom > 0){
-      const w = el.dataset.width;
-      if(w) el.style.width = w+'%';
-    }
-  });
-},500);
+// Initial bar animation
+setTimeout(()=>{document.querySelectorAll('.hof-bar-fill').forEach(el=>{const w=el.dataset.width;if(w)el.style.width=w+'%';});},400);
 </script>
 </body>
 </html>

@@ -214,7 +214,7 @@ section{padding:80px 0;position:relative}
 <nav class="nav">
   <span style="font-family:var(--font-display);letter-spacing:2px;color:var(--erdtree-light);font-size:13px">⚔ 褪色者</span>
   <div class="nav-links">
-    <a href="#hall-of-fame">圣物匣</a>
+    <a href="#hall-of-fame">圣遗物</a>
     <a href="#leaderboard">编年史</a>
     <a href="#perfect">暗月祭坛</a>
     <a href="#journey">交界地</a>
@@ -230,18 +230,18 @@ section{padding:80px 0;position:relative}
       <img class="hero-avatar" src="https://avatars.steamstatic.com/6889e542266ff1eca9c32d7f405a723a0e19f756_full.jpg" alt="avatar" onerror="this.onerror=null;this.src='https://avatars.cdn.queniuqe.com/6889e542266ff1eca9c32d7f405a723a0e19f756_full.jpg'">
     </div>
     <h1 class="hero-title reveal">勇猛狮子斩！</h1>
-    <p class="hero-sub reveal">Wuhan, Hubei · The Lands Between</p>
-    <p class="hero-since reveal">A Tarnished arisen on July 8, 2014 — twelve years beneath the Erdtree</p>
+    <p class="hero-sub reveal">武汉，湖北 · 交界地</p>
+    <p class="hero-since reveal">2014年7月8日苏醒的褪色者——黄金树下十二载</p>
 
     <div class="hero-stats reveal">
-      <div class="stat-card"><div class="stat-number gold" data-count="15000">0</div><div class="stat-label">Grace Bestowed</div></div>
-      <div class="stat-card"><div class="stat-number scarlet" data-count="349">0</div><div class="stat-label">Relics Gathered</div></div>
-      <div class="stat-card"><div class="stat-number gold" data-count="7">0</div><div class="stat-label">Great Runes</div></div>
-      <div class="stat-card"><div class="stat-number ranni" data-count="12">0</div><div class="stat-label">Moons Passed</div></div>
+      <div class="stat-card"><div class="stat-number gold" data-count="15000">0</div><div class="stat-label">赐福累积</div></div>
+      <div class="stat-card"><div class="stat-number scarlet" data-count="349">0</div><div class="stat-label">遗物收集</div></div>
+      <div class="stat-card"><div class="stat-number gold" data-count="7">0</div><div class="stat-label">大卢恩</div></div>
+      <div class="stat-card"><div class="stat-number ranni" data-count="12">0</div><div class="stat-label">暗月经行</div></div>
     </div>
 
     <div class="grace-bar reveal">
-      <div class="grace-label">The Guidance of Grace — Year by Year</div>
+      <div class="grace-label">赐福的指引——年复一年</div>
       <div class="grace-track" id="grace-track"></div>
       <div class="grace-labels" id="grace-labels"></div>
     </div>
@@ -252,10 +252,10 @@ section{padding:80px 0;position:relative}
 <section id="hall-of-fame">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">▸ Hallowed Relics</div>
-      <div class="section-title">The Eight Sacred Armaments</div>
+      <div class="section-label">▸ 圣遗物</div>
+      <div class="section-title">八件圣兵器</div>
       <div class="section-divider"></div>
-      <div class="section-sub">The games that tempered a Tarnished into a Lord</div>
+      <div class="section-sub">将褪色者锻造成艾尔登之王的游戏</div>
     </div>
     <div class="hof-grid" id="hof-grid"></div>
   </div>
@@ -265,28 +265,28 @@ section{padding:80px 0;position:relative}
 <section id="leaderboard">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">▸ The Great Chronicle</div>
-      <div class="section-title">Every Battle Recorded</div>
+      <div class="section-label">▸ 大编年史</div>
+      <div class="section-title">一切战斗 皆有记载</div>
       <div class="section-divider"></div>
     </div>
     <div class="lb-controls reveal">
-      <input type="text" class="lb-search" placeholder="Search the archives..." id="lbSearch" autocomplete="off">
+      <input type="text" class="lb-search" placeholder="搜索档案..." id="lbSearch" autocomplete="off">
       <select class="lb-sort" id="lbSort">
-        <option value="hours">By Grace</option>
-        <option value="name">By Name</option>
-        <option value="recent">By Recency</option>
-        <option value="ach">By Completion</option>
+        <option value="hours">按赐福排序</option>
+        <option value="name">按名称排序</option>
+        <option value="recent">按最近排序</option>
+        <option value="ach">按完成度排序</option>
       </select>
     </div>
     <div class="reveal" style="overflow-x:auto">
       <table class="lb-table">
-        <thead><tr><th></th><th></th><th>Tome</th><th style="text-align:right">Grace</th><th class="lb-bar-cell">Essence</th><th style="text-align:right">Shards</th><th class="lb-date">Last Rite</th></tr></thead>
+        <thead><tr><th></th><th></th><th>卷宗</th><th style="text-align:right">赐福</th><th class="lb-bar-cell">精粹</th><th style="text-align:right">碎片</th><th class="lb-date">最后仪式</th></tr></thead>
         <tbody id="lbBody"></tbody>
       </table>
       <div id="lbPagination" style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px;font-size:12px;color:var(--text-dim)">
-        <button id="lbPrev" class="lb-sort" style="cursor:pointer" disabled>← Previous</button>
+        <button id="lbPrev" class="lb-sort" style="cursor:pointer" disabled>← 上一页</button>
         <span id="lbPageInfo"></span>
-        <button id="lbNext" class="lb-sort" style="cursor:pointer">Next →</button>
+        <button id="lbNext" class="lb-sort" style="cursor:pointer">下一页 →</button>
       </div>
     </div>
   </div>
@@ -296,10 +296,10 @@ section{padding:80px 0;position:relative}
 <section id="perfect">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">▸ The Dark Moon Shrine</div>
-      <div class="section-title">Perfect Runes — Seven Deeds Complete</div>
+      <div class="section-label">▸ 暗月祭坛</div>
+      <div class="section-title">完美卢恩——七桩伟业</div>
       <div class="section-divider"></div>
-      <div class="section-sub">Every achievement, every shard — the mark of a true elden lord</div>
+      <div class="section-sub">每一个成就，每一块碎片——真正艾尔登之王的印记</div>
     </div>
     <div class="perfect-grid" id="perfect-grid"></div>
   </div>
@@ -309,8 +309,8 @@ section{padding:80px 0;position:relative}
 <section id="names">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">▸ Names of the Tarnished</div>
-      <div class="section-title">Ten Masks Across Twelve Moons</div>
+      <div class="section-label">▸ 褪色者之名</div>
+      <div class="section-title">十二暗月 十副面具</div>
       <div class="section-divider"></div>
     </div>
     <div class="timeline" id="timeline"></div>
@@ -321,8 +321,8 @@ section{padding:80px 0;position:relative}
 <section id="genres">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">▸ Sites of Grace</div>
-      <div class="section-title">What Kind of Tarnished Are You?</div>
+      <div class="section-label">▸ 赐福之地</div>
+      <div class="section-title">你是何种褪色者？</div>
       <div class="section-divider"></div>
     </div>
     <div class="tag-cloud reveal" id="tag-cloud"></div>
@@ -333,8 +333,8 @@ section{padding:80px 0;position:relative}
 <section id="journey">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">▸ The Long March</div>
-      <div class="section-title">Twelve Years Across the Lands Between</div>
+      <div class="section-label">▸ 漫长征程</div>
+      <div class="section-title">交界地十二载</div>
       <div class="section-divider"></div>
     </div>
     <div class="journey-grid" id="journey-grid"></div>
@@ -345,8 +345,8 @@ section{padding:80px 0;position:relative}
 <section id="groups">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-label">▸ Roundtable Hold</div>
-      <div class="section-title">Fellow Tarnished</div>
+      <div class="section-label">▸ 圆桌厅堂</div>
+      <div class="section-title">同道褪色者</div>
       <div class="section-divider"></div>
     </div>
     <div class="groups-grid" id="groups-grid"></div>
@@ -355,8 +355,8 @@ section{padding:80px 0;position:relative}
 
 <footer class="footer">
   <div class="container">
-    <p><strong>勇猛狮子斩！</strong> · SteamID: 76561198143906832 · Arisen 2014</p>
-    <p style="margin-top:4px;font-size:11px">「这个人蠢死了，什么都不会写」— yet in the Lands Between, action speaks louder than words</p>
+    <p><strong>勇猛狮子斩！</strong> · SteamID: 76561198143906832 · 2014年苏醒</p>
+    <p style="margin-top:4px;font-size:11px">「这个人蠢死了，什么都不会写」——但在交界地，行动胜于言语</p>
   </div>
 </footer>
 
@@ -658,19 +658,19 @@ const groups=[
   {name:"星缘天空",icon:"https://avatars.cdn.queniuqe.com/7e3acb263e32b24f422544b1d9062b110f4b514f.jpg",members:6693,online:1033},
 ];
 const yearData=[
-  {year:2014,est:200,phase:"The Awakening",games:"L4D2, CS2, Happy Wars"},
-  {year:2015,est:400,phase:"First Steps",games:"Borderlands Pre-Sequel, Card Hunter, Darksiders"},
-  {year:2016,est:600,phase:"Gathering Strength",games:"Skyrim, Clicker Heroes, Contagion"},
-  {year:2017,est:850,phase:"Stormveil",games:"Starbound, Terraria, Just Cause 3, Saints Row IV"},
-  {year:2018,est:950,phase:"Liurnia",games:"Warframe ascends, For Honor, GTA V, DOOM"},
-  {year:2019,est:1200,phase:"Caelid",games:"Civ V+VI, Borderlands 2, Apex Legends, Prey"},
-  {year:2020,est:1500,phase:"Altus Plateau",games:"Warframe peak, The Division, Grim Dawn"},
-  {year:2021,est:1800,phase:"Mount Gelmir",games:"Dying Light, MH World, Sea of Thieves"},
-  {year:2022,est:2200,phase:"Mountaintops",games:"ELDEN RING, DOS2, Sekiro, Valheim, V Rising"},
-  {year:2023,est:2100,phase:"Farum Azula",games:"BG3, New World, MH Rise, Starfield"},
-  {year:2024,est:2000,phase:"Leyndell Ashes",games:"HD2, ER Nightreign, Hades, Remnant 2"},
-  {year:2025,est:1800,phase:"The Final Battle",games:"MH Wilds, Black Myth: Wukong, Darktide, BF6"},
-  {year:2026,est:400,phase:"Age of Stars",games:"ER Nightreign, Warframe eternal!"},
+  {year:2014,est:200,phase:"苏醒",games:"L4D2, CS2, Happy Wars"},
+  {year:2015,est:400,phase:"初踏征途",games:"Borderlands Pre-Sequel, Card Hunter, Darksiders"},
+  {year:2016,est:600,phase:"积蓄力量",games:"Skyrim, Clicker Heroes, Contagion"},
+  {year:2017,est:850,phase:"史东薇尔",games:"Starbound, Terraria, Just Cause 3, Saints Row IV"},
+  {year:2018,est:950,phase:"利耶尼亚",games:"Warframe崛起, For Honor, GTA V, DOOM"},
+  {year:2019,est:1200,phase:"盖利德",games:"Civ V+VI, Borderlands 2, Apex Legends, Prey"},
+  {year:2020,est:1500,phase:"亚坛高原",games:"Warframe巅峰, The Division, Grim Dawn"},
+  {year:2021,est:1800,phase:"格密尔火山",games:"Dying Light, MH World, Sea of Thieves"},
+  {year:2022,est:2200,phase:"巨人山顶",games:"艾尔登法环, 神界原罪2, 只狼, Valheim"},
+  {year:2023,est:2100,phase:"天空城",games:"博德之门3, New World, MH Rise, Starfield"},
+  {year:2024,est:2000,phase:"灰城罗德尔",games:"HD2, 法环DLC, Hades, 遗迹2"},
+  {year:2025,est:1800,phase:"最终决战",games:"MH Wilds, 黑神话悟空, 暗潮, BF6"},
+  {year:2026,est:400,phase:"群星时代",games:"法环黑夜君临, Warframe永生!"},
 ];
 const genres=[
   {label:"动作RPG",weight:10},{label:"协作PVE",weight:9.5},{label:"魂系",weight:9},
@@ -711,7 +711,7 @@ const genres=[
     card.innerHTML=`
       ${cov?`<img class="hof-cover" src="${cov}" alt="${g.n}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'hof-cover-placeholder',textContent:'${emoji[i]}'}))">`:`<div class="hof-cover-placeholder">${emoji[i]}</div>`}
       <div class="hof-body">
-        <div class="hof-rank">Relic ${i+1}</div>
+        <div class="hof-rank">遗物 ${i+1}</div>
         <div class="hof-name">${g.n}</div>
         <div class="hof-hours ${colors[i]}">${g.h.toLocaleString()}h</div>
         <div class="hof-bar"><div class="hof-bar-fill" style="width:0%;background:var(--erdtree${i<2?'-light':''})" data-width="${g.h/maxH*100}"></div></div>
@@ -740,7 +740,7 @@ const genres=[
 
   function renderPage(){
     while(tbody.firstChild)tbody.removeChild(tbody.firstChild);
-    if(!sorted.length){pageInfo.textContent='No records found';prevBtn.disabled=true;nextBtn.disabled=true;return;}
+    if(!sorted.length){pageInfo.textContent='未找到记录';prevBtn.disabled=true;nextBtn.disabled=true;return;}
     const total=sorted.length,maxPage=Math.max(0,Math.ceil(total/PER)-1);
     if(page>maxPage)page=maxPage;if(page<0)page=0;
     const start=page*PER,end=Math.min(start+PER,total),slice=sorted.slice(start,end),maxH=slice[0]?.h||1;
@@ -757,7 +757,7 @@ const genres=[
       const tdDate=tr.insertCell();tdDate.className='lb-date';tdDate.textContent=g.d||'—';
       tbody.appendChild(tr);
     });
-    pageInfo.textContent=`Page ${page+1} / ${maxPage+1} · ${total} tomes`;
+    pageInfo.textContent=`第 ${page+1} 页 / 共 ${maxPage+1} 页 · ${total} 部卷宗`;
     prevBtn.disabled=page<=0;nextBtn.disabled=page>=maxPage;
   }
 
@@ -779,7 +779,7 @@ const genres=[
       ${cov?`<img class="perfect-cover" src="${cov}" alt="${g.n}" loading="lazy" onerror="this.style.display='none'">`:''}
       <div class="perfect-badge">${g.icon}</div>
       <div class="perfect-name">${g.n}</div>
-      <div class="perfect-ach">${g.ach} shards</div>
+      <div class="perfect-ach">${g.ach} 碎片</div>
       <div class="perfect-hours">${g.h.toLocaleString()}h</div>`;
     grid.appendChild(card);
   });

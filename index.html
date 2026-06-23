@@ -25,19 +25,11 @@ body{overflow-x:hidden}
 /* ===== BACKGROUND: 黄金树 + 暗月 ===== */
 .bg-ambient{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 
-/* — 黄金树 — */
-.erdtree{position:fixed;bottom:0;left:50%;transform:translateX(-50%);pointer-events:none;z-index:0;width:400px;height:85vh}
-.erdtree-trunk{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:18px;height:60%;background:linear-gradient(to top,rgba(190,150,65,.5),rgba(225,185,85,.3),rgba(199,164,75,.18));border-radius:9px 9px 0 0}
-.erdtree-glow{position:absolute;bottom:10%;left:50%;transform:translateX(-50%);width:300px;height:70%;background:radial-gradient(ellipse at 50% 30%,rgba(232,201,93,.18) 0%,rgba(199,164,75,.06) 40%,transparent 70%);filter:blur(30px)}
-.erdtree-branch{position:absolute;background:linear-gradient(to top,rgba(190,150,65,.3),rgba(199,164,75,.1));border-radius:50% 50% 0 0;transform-origin:bottom center}
-.erdtree-branch.b1{left:calc(50% - 8px);bottom:55%;width:120px;height:130px;transform:rotate(-25deg);border-radius:0 70% 0 0}
-.erdtree-branch.b2{left:calc(50% - 112px);bottom:55%;width:120px;height:130px;transform:rotate(25deg);border-radius:70% 0 0 0}
-.erdtree-branch.b3{left:calc(50% - 4px);bottom:50%;width:160px;height:150px;transform:rotate(-38deg);border-radius:0 60% 0 0}
-.erdtree-branch.b4{left:calc(50% - 156px);bottom:50%;width:160px;height:150px;transform:rotate(38deg);border-radius:60% 0 0 0}
-.erdtree-branch.b5{left:calc(50% - 2px);bottom:44%;width:100px;height:100px;transform:rotate(-50deg);border-radius:0 50% 0 0}
-.erdtree-branch.b6{left:calc(50% - 98px);bottom:44%;width:100px;height:100px;transform:rotate(50deg);border-radius:50% 0 0 0}
-.erdtree-crown{position:absolute;left:50%;bottom:53%;transform:translateX(-50%);width:260px;height:180px;background:radial-gradient(ellipse at 50% 70%,rgba(232,201,93,.1) 0%,rgba(199,164,75,.04) 30%,transparent 65%);border-radius:50%;filter:blur(20px)}
-.erdtree-leaves{position:absolute;left:50%;bottom:48%;transform:translateX(-50%);width:340px;height:220px;background:radial-gradient(ellipse at 50% 60%,rgba(232,201,93,.06) 0%,transparent 60%);border-radius:50%;filter:blur(15px)}
+/* — 黄金树 (SVG) — */
+.erdtree{position:fixed;bottom:-3vh;left:50%;transform:translateX(-50%);pointer-events:none;z-index:0;width:min(750px,95vw);height:88vh;opacity:.8}
+.erdtree svg{width:100%;height:100%}
+.erdtree-glow-outer{position:fixed;bottom:5%;left:50%;transform:translateX(-50%);width:600px;height:55vh;background:radial-gradient(ellipse at 50% 45%,rgba(232,201,93,.14) 0%,rgba(199,164,75,.04) 30%,transparent 65%);filter:blur(45px);pointer-events:none;z-index:0}
+.erdtree-glow-inner{position:fixed;bottom:8%;left:50%;transform:translateX(-50%);width:250px;height:35vh;background:radial-gradient(ellipse at 50% 50%,rgba(255,220,120,.15) 0%,rgba(199,164,75,.06) 30%,transparent 60%);filter:blur(25px);pointer-events:none;z-index:0}
 
 /* — 暗月 — */
 .darkmoon{position:fixed;top:6%;right:6%;pointer-events:none;z-index:0;width:220px;height:220px}
@@ -209,7 +201,9 @@ section{padding:80px 0;position:relative}
   .timeline{padding-left:24px}
   .timeline-dot{left:-22px;width:9px;height:9px}
   .hof-cover{height:90px}
-  .erdtree{width:200px;opacity:.6}
+  .erdtree{width:400px;opacity:.65}
+  .erdtree-glow-outer{width:300px;height:40vh}
+  .erdtree-glow-inner{width:150px;height:25vh}
   .darkmoon{width:120px;height:120px;top:5%;right:2%}
 }
 @media(max-width:480px){
@@ -229,17 +223,75 @@ section{padding:80px 0;position:relative}
 <body>
 
 <div class="bg-ambient">
+  <div class="erdtree-glow-outer"></div>
+  <div class="erdtree-glow-inner"></div>
   <div class="erdtree">
-    <div class="erdtree-glow"></div>
-    <div class="erdtree-crown"></div>
-    <div class="erdtree-leaves"></div>
-    <div class="erdtree-branch b1"></div>
-    <div class="erdtree-branch b2"></div>
-    <div class="erdtree-branch b3"></div>
-    <div class="erdtree-branch b4"></div>
-    <div class="erdtree-branch b5"></div>
-    <div class="erdtree-branch b6"></div>
-    <div class="erdtree-trunk"></div>
+    <svg viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="trunk" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="rgba(160,120,50,.55)"/>
+          <stop offset="40%" stop-color="rgba(200,160,70,.35)"/>
+          <stop offset="80%" stop-color="rgba(220,185,90,.15)"/>
+          <stop offset="100%" stop-color="rgba(200,170,80,.05)"/>
+        </linearGradient>
+        <linearGradient id="branchL" x1="1" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="rgba(180,140,55,.35)"/>
+          <stop offset="100%" stop-color="rgba(220,185,90,.04)"/>
+        </linearGradient>
+        <linearGradient id="branchR" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0%" stop-color="rgba(180,140,55,.35)"/>
+          <stop offset="100%" stop-color="rgba(220,185,90,.04)"/>
+        </linearGradient>
+        <radialGradient id="glow">
+          <stop offset="0%" stop-color="rgba(240,210,120,.07)"/>
+          <stop offset="50%" stop-color="rgba(200,165,80,.025)"/>
+          <stop offset="100%" stop-color="rgba(200,165,80,0)"/>
+        </radialGradient>
+      </defs>
+      <!-- Outer glow -->
+      <ellipse cx="300" cy="400" rx="250" ry="280" fill="url(#glow)"/>
+      <ellipse cx="300" cy="350" rx="160" ry="200" fill="url(#glow)"/>
+      <!-- Trunk -->
+      <path d="M290,880 Q292,700 288,550 Q286,450 290,380 Q294,320 300,280 L300,880 Z" fill="url(#trunk)"/>
+      <path d="M300,880 Q308,700 312,550 Q314,450 310,380 Q306,320 300,280 L300,880 Z" fill="url(#trunk)"/>
+      <!-- Main branches - left side -->
+      <path d="M290,600 Q240,560 180,510 Q140,475 100,430" stroke="url(#branchL)" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <path d="M180,510 Q150,480 110,450 Q80,425 50,390" stroke="url(#branchL)" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M140,475 Q100,440 60,410 Q30,385 10,350" stroke="url(#branchL)" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M288,500 Q230,450 160,390 Q130,360 90,320" stroke="url(#branchL)" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M160,390 Q120,350 80,310 Q50,280 20,240" stroke="url(#branchL)" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M286,420 Q240,380 180,330 Q150,305 110,270" stroke="url(#branchL)" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M180,330 Q140,295 100,260 Q70,235 40,200" stroke="url(#branchL)" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <!-- Main branches - right side -->
+      <path d="M310,600 Q360,560 420,510 Q460,475 500,430" stroke="url(#branchR)" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <path d="M420,510 Q450,480 490,450 Q520,425 550,390" stroke="url(#branchR)" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M460,475 Q500,440 540,410 Q570,385 590,350" stroke="url(#branchR)" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M312,500 Q370,450 440,390 Q470,360 510,320" stroke="url(#branchR)" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M440,390 Q480,350 520,310 Q550,280 580,240" stroke="url(#branchR)" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M314,420 Q360,380 420,330 Q450,305 490,270" stroke="url(#branchR)" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M420,330 Q460,295 500,260 Q530,235 560,200" stroke="url(#branchR)" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <!-- Secondary branches -->
+      <path d="M285,650 Q230,620 170,580" stroke="url(#branchL)" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M315,650 Q370,620 430,580" stroke="url(#branchR)" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <!-- Crown canopy -->
+      <ellipse cx="300" cy="330" rx="200" ry="140" fill="rgba(220,185,90,.025)" opacity=".6"/>
+      <ellipse cx="300" cy="310" rx="140" ry="100" fill="rgba(240,205,110,.03)" opacity=".5"/>
+      <ellipse cx="300" cy="350" rx="250" ry="160" fill="rgba(200,160,70,.015)" opacity=".4"/>
+      <!-- Small scattered twigs/leaves -->
+      <circle cx="80" cy="400" r="3" fill="rgba(220,185,90,.12)"/>
+      <circle cx="120" cy="370" r="2" fill="rgba(220,185,90,.1)"/>
+      <circle cx="60" cy="360" r="2.5" fill="rgba(220,185,90,.08)"/>
+      <circle cx="40" cy="330" r="2" fill="rgba(220,185,90,.06)"/>
+      <circle cx="520" cy="400" r="3" fill="rgba(220,185,90,.12)"/>
+      <circle cx="480" cy="370" r="2" fill="rgba(220,185,90,.1)"/>
+      <circle cx="540" cy="360" r="2.5" fill="rgba(220,185,90,.08)"/>
+      <circle cx="560" cy="330" r="2" fill="rgba(220,185,90,.06)"/>
+      <circle cx="200" cy="290" r="3" fill="rgba(220,185,90,.08)"/>
+      <circle cx="400" cy="290" r="3" fill="rgba(220,185,90,.08)"/>
+      <circle cx="300" cy="250" r="4" fill="rgba(220,185,90,.1)"/>
+      <circle cx="150" cy="310" r="2" fill="rgba(220,185,90,.06)"/>
+      <circle cx="450" cy="310" r="2" fill="rgba(220,185,90,.06)"/>
+    </svg>
   </div>
   <div class="darkmoon">
     <div class="darkmoon-halo"></div>
